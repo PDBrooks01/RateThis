@@ -24,3 +24,19 @@ mongoose.connect(mongoURI, {
 db.on('error', (err)=> { console.log('ERROR: ', err)});
 db.on('connected', ()=> { console.log("mongo connected")})
 db.on('disconnected', ()=> { console.log("mongo disconnected")})
+
+
+//CSS Connect
+app.use(express.static('public'))
+
+app.use(express.urlencoded({extended: true}))
+
+
+//Controllers
+const dogtoyControllers = require('./controllers/dogtoys')
+app.use('/ratethis',dogtoyControllers)
+
+
+app.listen(PORT, ()=>{
+  console.log('Server is ready to roll...');
+})
