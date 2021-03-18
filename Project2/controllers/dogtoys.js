@@ -58,6 +58,12 @@ router.get('/:id',(req,res)=>{
   })
 })
 
+router.get('/:id/review',(req,res)=>{
+  Dogtoy.findById(req.params.id,(err,foundDogtoys)=>{
+    res.render('review.ejs',{dogtoy:foundDogtoys})
+  })
+})
+
 
 //POST Route
 router.post('/',(req,res)=>{
@@ -72,6 +78,6 @@ router.post('/',(req,res)=>{
   })
 })
 
-
+//Need to add Review Post
 
 module.exports = router

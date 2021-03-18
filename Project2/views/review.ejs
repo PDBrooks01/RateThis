@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Add New Review for <%=dogtoy.name%> </h1>
+    <form action="/ratethis/<%=dogtoy.id%>" method="post">
+      <label>Username: </label>
+      <input type="text" name="username" placeholder="Shredder1234"><br>
+      <label>Review: </label> <br>
+      <input type="text" name="review" placeholder="Example:I bought this a month ago and am so happy that I did...">
+      <input type="submit" value="Post Review">
+    </form>
+
+      <a href="/ratethis/<%=dogtoy.id%>">Back</a>
+  </body>
+</html>
