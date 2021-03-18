@@ -51,6 +51,13 @@ router.get('/seed',(req,res)=>{
   })
 })
 
+//Show Route
+router.get('/:id',(req,res)=>{
+  Dogtoy.findById(req.params.id, (err, foundDogtoys)=>{
+    res.render('show.ejs',{dogtoy:foundDogtoys})
+  })
+})
+
 
 //POST Route
 router.post('/',(req,res)=>{
