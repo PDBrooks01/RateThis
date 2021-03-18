@@ -3,6 +3,7 @@ const router = express.Router()
 
 const Dogtoy = require('../models/dogtoys')
 
+//Index Route
 router.get('/',(req,res)=>{
   Dogtoy.find({},(err, foundDogtoys,next)=>{
     if (err) {
@@ -13,6 +14,8 @@ router.get('/',(req,res)=>{
     }
   })
 })
+
+//Seed Route
 
 
 
