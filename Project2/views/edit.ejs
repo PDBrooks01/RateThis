@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Toy</title>
+  </head>
+  <body>
+    <div class="top">
+      <h3>Editing <%=dogtoy.name%> </h3>
+    </div>
+    <form action="/ratethis/<%=dogtoy.id%>?_method=PUT" method="POST">
+      <label>
+        <span>Name of Toy:</span>
+        <input type="text" name="name" value="<%=dogtoy.name%>"/>
+      </label>
+
+      <label>
+        <span>Brand of Toy:</span>
+        <input type="text" name="brand" value="<%=dogtoy.brand%>"/>
+      </label>
+
+      <label>
+        <span>Image Link:</span>
+        <input type="text" name="img" value="<%=dogtoy.img%>"/>
+      </label>
+
+      <label>
+        <span>Size of Dog:</span>
+        <input type="number" name="size" value="<%=dogtoy.size%>"/>
+      </label>
+      <br>
+      <input type="submit" value="Update Toy"/>
+    </form>
+
+    <a href="/ratethis/<%=dogtoy.id%>">Back</a>
+  </body>
+</html>

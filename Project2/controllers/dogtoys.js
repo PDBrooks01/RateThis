@@ -78,6 +78,22 @@ router.post('/',(req,res)=>{
   })
 })
 
+
+//Edit Route
+router.get('/:id/edit',(req,res)=>{
+  Dogtoy.findById(req.params.id,(err,foundDogtoys)=>{
+    res.render('edit.ejs',{ dogtoy:foundDogtoys })
+  })
+})
+
+//Update Route
+router.put('/:id',(re,res)=>{
+  Dogtoy.findByIdAndUpdate(req.params.id,req.body,{new:true},(err,updatedToy)=>{
+    res.redirect('/ratethis')
+  })
+})
+
+
 //Need to add Review Post
 
 module.exports = router
