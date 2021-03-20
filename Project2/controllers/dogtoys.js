@@ -78,6 +78,16 @@ router.post('/',(req,res)=>{
   })
 })
 
+//Delete Route
+router.delete('/:id',(req,res)=>{
+  Dogtoy.findByIdAndRemove(req.params.id,(err,data)=>{
+    if (err) {
+      console.log(err)
+    }else {
+      res.redirect('/ratethis')
+    }
+  })
+})
 
 //Edit Route
 router.get('/:id/edit',(req,res)=>{
@@ -94,6 +104,6 @@ router.put('/:id',(re,res)=>{
 })
 
 
-//Need to add Review Post
+//Need to add Review Post Route 
 
 module.exports = router
