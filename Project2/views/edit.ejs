@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <title>Edit Toy</title>
   </head>
+  <%- include('./partials/nav.ejs') %>
   <body>
     <div class="top">
       <h3>Editing <%=dogtoy.name%> </h3>
     </div>
-    <form action="/ratethis/<%=dogtoy.id%>?_method=PUT" method="POST">
+    <form action="/ratethis/<%=dogtoy.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
       <label>
         <span>Name of Toy:</span>
         <input type="text" name="name" value="<%=dogtoy.name%>"/>

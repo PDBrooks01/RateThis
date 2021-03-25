@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <title>Add New Toy</title>
   </head>
+  <%- include('./partials/nav.ejs') %>
   <body>
     <div class="top">
       <h3>Add a new toy</h3>
     </div>
-    <form action="/ratethis" method="POST">
+    <form action="/ratethis" method="POST" enctype="multipart/form-data">
       <label>
         <span>Name of Toy:</span>
         <input type="text" name="name"/>
@@ -20,10 +21,12 @@
       </label>
 
       <label>
-        <span>Image Link:</span>
-        <input type="text" name="img"/>
+        <span>Image of Toy:</span>
+        Link <input type="text" name="img" placeholder="Insert Link Here">
+        OR  <input type="file" name="img" >
+        <!-- <input type="submit" value="upload"> -->
       </label>
-      
+
       <label>
         <span>Size of Dog:</span>
         <input type="number" name="size"/>

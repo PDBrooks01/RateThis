@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title> <%=dogtoy.name%> Reviews </title>
   </head>
+  <%- include('./partials/nav.ejs') %>
   <body>
     <h3> <%=dogtoy.name%> </h3>
     <form action="/ratethis/<%=dogtoy.id%>?_method=DELETE" method="post">

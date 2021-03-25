@@ -2,10 +2,10 @@ const mongoose = require('mongoose')
 const {Schema, model}=mongoose
 
 const dogtoySchema = new Schema({
-  name:{type: String, required:true},
-  brand:{type: String, required:true},
-  img:{type:String,required:true},
-  size:{type: Array, required:true}
+  name:{type: String},
+  brand:{type: String},
+  img: {type: String},
+  size:{type: Array}
 })
 
 const Dogtoy = model('Dogtoy',dogtoySchema)

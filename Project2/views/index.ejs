@@ -4,17 +4,19 @@
     <meta charset="utf-8">
     <title>Rate This Homepage</title>
   </head>
+  <%- include('./partials/nav.ejs') %>
   <body>
+
     <div class="top">
       <h1>Rate This!</h1>
-      <a href="/ratethis/new"> Add New Toy </a>
+
     </div>
     <ul>
-      <% for(let i=0; i<dogtoys.length;i++){%>
+      <% for (let i = 0; i < dogtoys.length ; i++) { %>
         <li>
           <a href="/ratethis/<%=dogtoys[i].id%>"> <%=dogtoys[i].name%> </a>
-           <img src="<%=dogtoys[i].img%>" alt="Image of <%=dogtoys[i].name%>">
-           <%# Need to add Star Rating %>
+          <img src="<%=dogtoys[i].img%>" alt="Image of <%=dogtoys[i].name%>">
+           <!-- <%# Need to add Star Rating %> -->
         </li>
       <%}%>
     </ul>
