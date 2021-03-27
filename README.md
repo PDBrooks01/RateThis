@@ -36,3 +36,10 @@ Routes
 
 WireFrames
 
+
+<img width="621" alt="Rate This" src="https://user-images.githubusercontent.com/75276378/112722259-c988c600-8ede-11eb-8788-f01cd1a49cbd.png">
+
+
+<img width="641" alt="What did your pup think of the toy" src="https://user-images.githubusercontent.com/75276378/112722282-f9d06480-8ede-11eb-8c87-d14cf5d46aed.png">
+
+<img width="351" alt="Add New Toy for Review" src="https://user-images.githubusercontent.com/75276378/112722291-0654bd00-8edf-11eb-9232-416b96bacaa9.png">
