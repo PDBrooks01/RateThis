@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Edit Toy</title>
-  </head>
+<%- include('./partials/header.ejs') %>
   <%- include('./partials/nav.ejs') %>
-  <body>
+
     <div class="top">
       <h3>Editing <%=dogtoy.name%> </h3>
     </div>
-    <form action="/ratethis/<%=dogtoy.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <form class="editForm" action="/ratethis/<%=dogtoy.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
       <label>
         <span>Name of Toy:</span>
         <input type="text" name="name" value="<%=dogtoy.name%>"/>
@@ -21,8 +16,9 @@
       </label>
 
       <label>
-        <span>Image Link:</span>
-        <input type="text" name="img" value="<%=dogtoy.img%>"/>
+        <span>Image of Toy:</span>
+        <!-- <input type="text" name="img" value="<%=dogtoy.img%>"/> -->
+       <input type="file" name="img" >
       </label>
 
       <label>
@@ -30,9 +26,9 @@
         <input type="number" name="size" value="<%=dogtoy.size%>"/>
       </label>
       <br>
-      <input type="submit" value="Update Toy"/>
+      <input class="button" type="submit" value="Update Toy"/>
     </form>
 
-    <a href="/ratethis/<%=dogtoy.id%>">Back</a>
-  </body>
-</html>
+    <a href="/ratethis/<%=dogtoy.id%>" class="back-button" >Back</a>
+
+<%- include('./partials/footer.ejs') %>

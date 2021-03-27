@@ -1,0 +1,64 @@
+.clr{
+  clear: both;
+}
+body{
+  background-color: #f4f4f4;
+  font-family: 'New Tegomin', serif;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+a:hover{
+  color: purple;
+}
+a:visited{
+  color: #000;
+}
+.button{
+  background-color: #003b00;
+  color: #fff;
+  padding: 5px;
+  border: none;
+}
+.button:hover{
+  color: black;
+  background-color: white;
+  border: 2px black solid;
+}
+.title {
+  color: purple;
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 2px;
+
+}
+
+.toy-container {
+  padding: 20px 0 20px 0;
+  display: flex;
+  flex-flow: wrap;
+}
+.toy-container ul{
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+
+}
+.toy-container img{
+  width: 50%;
+  height: 50%;
+  display: block;
+}
+
+
+.home{
+  float:none;
+}
+.navi li{
+  display:block;
+  letter-spacing: 2px;
+  list-style: none;
+  border-bottom: 1px solid;
+  float: right;
+}

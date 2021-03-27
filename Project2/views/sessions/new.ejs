@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>New User Page</title>
-  </head>
-  <body>
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
     <form action="/sessions" method="POST">
 
       <label>
@@ -21,5 +16,5 @@
       <br>
       <input type="submit" value="Login" />
   </form>
-  </body>
-</html>
+
+  <%- include('../partials/footer.ejs') %>

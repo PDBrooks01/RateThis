@@ -1,24 +1,25 @@
 <nav>
   <div>
       <span>
-          <a href="/" class="">HOME</a> |
-          <a href="/ratethis" class=""> All Dog Toys</a>
+          <a href="/ratethis" class="home"> Homepage </a>
 
       </span>
 
-      <ul class="right">
+      <ul class="navi">
 
           <% if (currentUser) { %>
+
+              <li> Welcome <%= currentUser.username %> </li> <br>
               <li><a href="/ratethis/new"> Add New Toy </a> </li>
-              <li> Welcome <%= currentUser.username %> </li>
 
               <li>
                   <form action="/sessions?_method=DELETE" method="POST">
-                      <button>Log Out</button>
+                      <button class="button">Log Out</button>
                   </form>
               </li>
           <% } else { %>
               <li><a href="/sessions/new">Log In</a></li>
+
               <li><a href="/users/new">Sign Up</a></li>
           <% } %>
       </ul>

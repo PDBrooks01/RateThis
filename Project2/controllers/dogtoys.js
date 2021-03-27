@@ -5,13 +5,13 @@ const router = express.Router()
 
 const Dogtoy = require('../models/dogtoys')
 
-// const fileStorage = multer.diskStorage({
-//   destination:'./public/images/',
-//   filename:(req,file,cb)=>{
-//     cb(null,file.fieldname +"-"+ Date.now()+file.originalname)
-//   }
-// })
-// const upload = multer({storage:fileStorage}).single('img')
+const fileStorage = multer.diskStorage({
+  destination:'./public/images/',
+  filename:(req,file,cb)=>{
+    cb(null,file.fieldname +"-"+ Date.now()+file.originalname)
+  }
+})
+const upload = multer({storage:fileStorage}).single('img')
 
 //Index Route
 router.get('/',(req,res)=>{
@@ -24,6 +24,7 @@ router.get('/',(req,res)=>{
     }
   })
 })
+
 
 //New Route
 router.get('/new',(req,res)=>{
@@ -64,7 +65,7 @@ router.get('/seed',(req,res)=>{
 //Show Route
 router.get('/:id',(req,res)=>{
   Dogtoy.findById(req.params.id, (err, foundDogtoys)=>{
-    res.render('show.ejs',{dogtoy:foundDogtoys,currentUser: req.session.currentUser })
+    res.render('show.ejs',{dogtoy:foundDogtoys, currentUser: req.session.currentUser })
   })
 })
 
@@ -75,7 +76,7 @@ router.get('/:id/review',(req,res)=>{
 })
 
 
-//POST Route
+// POST Route
 // router.post('/',(req,res)=>{
 //   upload((req,res)=>{
 //       res.render('index',{
@@ -84,7 +85,8 @@ router.get('/:id/review',(req,res)=>{
 //     })
 //   })
 
-router.post('/',(req,res)=>{
+router.post('/',upload, (req,res)=>{
+  req.body.img = req.file
   Dogtoy.create(req.body,(error,createdToy)=>{
     if (error){
       console.log(error)
@@ -96,8 +98,19 @@ router.post('/',(req,res)=>{
   })
 })
 
+//Posting Reviews
+router.put('/:id',(req,res)=>{
+  Dogtoy.findByIdAndUpdate(req.params.id,(err,review)=>{
+    $push:{
+      reviews:[{username: req.body.username, review: req.body.review}
+    ]}
+    res.send("Review Successfully Added")
+  })
+})
+
+
 //Delete Route
-router.delete('/:id',(req,res)=>{
+router.delete('/:id',upload,(req,res)=>{
   Dogtoy.findByIdAndRemove(req.params.id,(err,data)=>{
     if (err) {
       console.log(err)
@@ -115,7 +128,8 @@ router.get('/:id/edit',(req,res)=>{
 })
 
 //Update Route
-router.put('/:id',(re,res)=>{
+router.put('/:id',upload,(req,res)=>{
+  req.body.img = req.file.filename
   Dogtoy.findByIdAndUpdate(req.params.id,req.body,{new:true},(err,updatedToy)=>{
     res.redirect('/ratethis')
   })

@@ -36,7 +36,7 @@ router.post('/',(req,res)=>{
 //logout route
 router.delete('/',(req,res)=>{
   req.session.destroy(()=>{
-    res.redirect('/')
+    res.redirect('/ratethis')
   })
 })
 

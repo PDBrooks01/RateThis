@@ -33,6 +33,7 @@ app.use(express.static('public'))
 
 app.use(express.urlencoded({extended: true}))
 
+
 //SESSION
 
 app.use(session({

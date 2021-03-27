@@ -1,22 +1,47 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title> <%=dogtoy.name%> Reviews </title>
-  </head>
-  <%- include('./partials/nav.ejs') %>
-  <body>
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/nav.ejs') %>
+
     <h3> <%=dogtoy.name%> </h3>
-    <form action="/ratethis/<%=dogtoy.id%>?_method=DELETE" method="post">
+    <button><a href="/ratethis/<%=dogtoy.id%>/edit">Edit Toy</a></button>
+
+    <form action="/ratethis/<%=dogtoy.id%>?_method=DELETE" method="post" enctype="multipart/form-data">
       <button>Delete this toy</button>
     </form>
     <h4> Brand: <%=dogtoy.brand%> </h4>
-    <img src="<%=dogtoy.img%>" alt="Image of <%=dogtoy.name%>">
-    <a href="/ratethis/<%=dogtoy.id%>/edit">Edit Toy</a>
+    <img src="public/images/<%=dogtoy.img%>" alt="Image of <%=dogtoy.name%>">
+
+
+
+    <h4>Add New Review for <%=dogtoy.name%> </h4>
+    <form method="post" onsubmit="return doComment(this)">
+      <input type="hidden" name="reviews">
+      <label>Username: </label>
+      <input type="text" name="username" placeholder="Shredder1234"><br>
+      <label>Review: </label> <br>
+      <textarea name="review" rows ="4" placeholder="Example:I bought this a month ago and am so happy that I did..."></textarea>
+      <input class="button" type="submit" value="Post Review">
+    </form>
+    <script>
+      function doComment(form){
+        $.ajax({
+        url:"/ratethis/<%=dogtoy.id%>",
+        method:"POST",
+        data:{username: form.username.value, comment:form.review.value, success: function(response){alert(response)}}
+      })
+      return false
+    }
+    </script>
 
     <p>Reviews for <%=dogtoy.name%>: </p>
+    <%dogtoy.reviews.forEach((review)=>{%>
+      <h5><%=reviews.username%></h5>
+      <%=review.review%>
 
-    <a href="/ratethis/<%=dogtoy.id%>/review">Add Review</a>
-    <a href="/ratethis">Back to Main</a>
-  </body>
-</html>
+    <%})%>
+
+
+
+
+
+    <a href="/ratethis" class="back-button" >Back to Main</a>
+<%- include('./partials/footer.ejs') %>

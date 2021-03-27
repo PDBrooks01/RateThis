@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Add New Toy</title>
-  </head>
+  <%- include('./partials/header.ejs') %>
   <%- include('./partials/nav.ejs') %>
-  <body>
+
     <div class="top">
       <h3>Add a new toy</h3>
     </div>
@@ -32,8 +27,6 @@
         <input type="number" name="size"/>
       </label>
       <br>
-      <input type="submit" value="Add Toy"/>
+      <input class="button" type="submit" value="Add Toy"/>
     </form>
-
-  </body>
-</html>
+    <%- include('./partials/footer.ejs') %>
